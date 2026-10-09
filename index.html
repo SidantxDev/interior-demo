@@ -30,14 +30,14 @@ img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button,input,select,textarea{font:inherit;color:inherit}
 .wrap{width:min(1240px,100% - 48px);margin-inline:auto}
-.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--clay)}
+.eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--clay)}
 .eyebrow.line{display:flex;align-items:center;gap:14px}
 .eyebrow.line::before{content:"";width:36px;height:1px;background:currentColor}
-h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.015em;line-height:1.05}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.022em;line-height:1.02}
 h2{font-size:clamp(36px,5vw,60px)}
 h2 em,h1 em{font-style:italic;color:var(--clay)}
 .lead{font-size:18px;color:var(--ink-2);max-width:52ch}
-section{padding:104px 0}
+section{padding:124px 0}
 .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:44px;flex-wrap:wrap}
 .sec-head h2{margin-top:14px}
 .note-line{font-size:13px;color:var(--muted);margin-top:14px}
@@ -76,23 +76,28 @@ section{padding:104px 0}
 .hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);animation:heroZoom 15s ease-out forwards}
 @keyframes heroZoom{to{transform:scale(1)}}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(32,22,16,.52) 0%,rgba(32,22,16,.18) 32%,rgba(32,22,16,.84) 100%)}
-.hero h1{font-size:clamp(46px,7.6vw,108px);max-width:13ch;margin:18px 0 20px}
+.hero h1{font-size:clamp(50px,8vw,116px);max-width:12ch;margin:22px 0 22px;line-height:.96}
 .hero h1 em{color:#eac79f}
 .hero .eyebrow{color:#eac79f}
-.hero .lead{color:rgba(245,239,231,.9);max-width:46ch}
+.hero .lead{color:rgba(245,239,231,.88);max-width:40ch;font-size:17px}
 .rating-chip{display:inline-flex;align-items:center;gap:10px;margin-top:24px;padding:10px 14px;border:1px solid rgba(245,239,231,.35);font-size:14px;background:rgba(32,22,16,.35);backdrop-filter:blur(6px)}
 .stars{color:#e8b54d;letter-spacing:2px}
-.hero-acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero-acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.scroll-cue{display:flex;align-items:center;gap:12px;margin-top:46px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:rgba(245,239,231,.7)}
+.scroll-cue::before{content:"";width:52px;height:1px;background:rgba(245,239,231,.5)}
 
 /* estimator bar */
-.est{margin-top:30px;display:grid;grid-template-columns:1fr 1fr 1fr auto;background:var(--card);color:var(--ink);box-shadow:0 30px 60px -22px rgba(0,0,0,.5);max-width:1000px}
+.est-panel{background:var(--card);border:1px solid var(--line);padding:38px 36px;margin-bottom:34px}
+.est-panel h3{font-size:clamp(26px,3vw,36px);margin:10px 0 6px}
+.est-panel p.sub{color:var(--muted);font-size:15px;max-width:52ch}
+.est{margin-top:26px;display:grid;grid-template-columns:1fr 1fr 1fr auto;border:1px solid var(--line);background:var(--paper)}
 .field{display:flex;flex-direction:column;padding:12px 20px;border-right:1px solid var(--line)}
 .field label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .field select{border:0;background:none;font-weight:600;font-size:15px;padding:4px 0;cursor:pointer;outline:none;appearance:none;-webkit-appearance:none}
 .est .btn{padding:0 28px;height:100%}
-.est-out{max-width:1000px;background:rgba(32,22,16,.42);border:1px solid rgba(245,239,231,.3);backdrop-filter:blur(6px);padding:16px 20px;display:flex;gap:18px;align-items:baseline;flex-wrap:wrap}
-.est-out b{font-family:var(--serif);font-size:30px;font-weight:400;color:#eac79f}
-.est-out span{font-size:14px;color:rgba(245,239,231,.82)}
+.est-out{margin-top:24px;padding-top:22px;border-top:1px solid var(--line);display:flex;gap:20px;align-items:baseline;flex-wrap:wrap}
+.est-out b{font-family:var(--serif);font-size:clamp(34px,4.4vw,48px);font-weight:400;color:var(--clay);line-height:1}
+.est-out span{font-size:14px;color:var(--muted);max-width:46ch}
 
 /* featured stacking cards, image led */
 #featured{background:var(--paper-2)}
@@ -261,6 +266,7 @@ footer a:hover{color:var(--paper)}
   .est{grid-template-columns:1fr 1fr}
   .field{border-bottom:1px solid var(--line)}
   .est .btn{grid-column:1/-1;padding:16px;justify-content:center}
+  .est-panel{padding:30px 26px}
   .stack-card{grid-template-columns:1fr;min-height:0}
   .stack-card .pic{aspect-ratio:16/11}
   .stack-card .body{padding:28px}
@@ -282,10 +288,21 @@ footer a:hover{color:var(--paper)}
   .brand-sub{white-space:nowrap;font-size:9px;letter-spacing:.14em}
   .brand-sub .bs-pre{display:none}
   .mono{width:36px;height:36px;font-size:17px}
-  .hero{padding-bottom:26px}
-  .est{grid-template-columns:1fr 1fr}
-  .field{padding:10px 14px}
-  .est-out b{font-size:25px}
+  /* clear the fixed call bar so the hero buttons are never clipped */
+  .hero{padding-bottom:86px}
+  .est{grid-template-columns:1fr}
+  .field{padding:12px 16px;border-right:0}
+  .scroll-cue{display:none}
+  .hero h1{margin:16px 0 18px}
+  /* crop the hero toward the detail on the right, not the blank curtain */
+  .hero-bg img{object-position:68% center}
+  /* the band reads as a photo strip you swipe, not a cramped 2x2 */
+  .band{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:76%;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .band::-webkit-scrollbar{display:none}
+  .band figure{scroll-snap-align:center;aspect-ratio:3/4.2}
+  .gcard .pic{aspect-ratio:3/4}
+  .gcard .b{padding:22px}
+  .est-panel{padding:26px 22px}
   .grid{grid-template-columns:1fr}
   .count{margin-left:0;width:100%}
   .stack-card h3{font-size:28px}
@@ -351,18 +368,13 @@ footer a:hover{color:var(--paper)}
   <div class="wrap">
     <p class="eyebrow line rv"><span>Full homes · Kitchens · Wardrobes in <span data-f="area">Indiranagar</span>, Bengaluru</span></p>
     <h1 class="rv d1">Interiors for <em data-f="area">Indiranagar</em> homes.</h1>
-    <p class="lead rv d2">See the work first. Then get an indicative cost for your flat in under a minute, and a firm quote after one site visit.</p>
+    <p class="lead rv d2">Full home interiors, kitchens and wardrobes. Designed, made and installed by one team.</p>
     <div class="rating-chip rv d2" id="ratingChip" hidden><span class="stars" id="ratingStars"></span><span><b id="ratingVal"></b> on Google · <span id="ratingCount"></span> reviews</span></div>
-    <form class="est rv d3" id="estForm" onsubmit="return false">
-      <div class="field"><label for="eType">Your home</label><select id="eType"></select></div>
-      <div class="field"><label for="eScope">What you need</label><select id="eScope"></select></div>
-      <div class="field"><label for="eFinish">Finish</label><select id="eFinish"></select></div>
-      <button class="btn clay" type="submit" id="estGo">Indicative cost <svg><use href="#i-arrow"/></svg></button>
-    </form>
-    <div class="est-out rv d3" id="estOut" hidden></div>
     <div class="hero-acts rv d3">
-      <a class="btn light" href="#work" style="background:var(--paper);color:var(--brown);border-color:var(--paper)">See the work <svg><use href="#i-arrow"/></svg></a>
+      <a class="btn" href="#work" style="background:var(--paper);color:var(--brown);border-color:var(--paper)">See the work <svg><use href="#i-arrow"/></svg></a>
+      <a class="btn ghost" href="#pricing" style="color:var(--paper);border-color:rgba(245,239,231,.55)">What it costs</a>
     </div>
+    <p class="scroll-cue rv d3">Scroll</p>
   </div>
 </section>
 
@@ -414,6 +426,18 @@ footer a:hover{color:var(--paper)}
     <div class="sec-head">
       <div><p class="eyebrow line rv">What it costs</p><h2 class="rv d1">Rates before the <em>first visit</em>.</h2></div>
       <p class="lead rv d2" style="max-width:40ch">Indicative Bengaluru rates on carpet area. Your figure is confirmed after a site measurement, as a line-item quote.</p>
+    </div>
+    <div class="est-panel rv">
+      <p class="eyebrow">Quick estimate</p>
+      <h3>What would your home cost?</h3>
+      <p class="sub">Three answers and you get the range we would expect, before anyone visits.</p>
+      <form class="est" id="estForm" onsubmit="return false">
+        <div class="field"><label for="eType">Your home</label><select id="eType"></select></div>
+        <div class="field"><label for="eScope">What you need</label><select id="eScope"></select></div>
+        <div class="field"><label for="eFinish">Finish</label><select id="eFinish"></select></div>
+        <button class="btn clay" type="submit" id="estGo">Indicative cost <svg><use href="#i-arrow"/></svg></button>
+      </form>
+      <div class="est-out" id="estOut" hidden></div>
     </div>
     <div class="tiers">
       <div class="tier rv"><h3>Essential</h3><div class="rate">₹800<small>per sq ft, full home</small></div>
@@ -697,7 +721,7 @@ footer a:hover{color:var(--paper)}
       '<p class="loc"><svg><use href="#i-pin"/></svg>' + x.locName + ', Bengaluru</p>' +
       '<div class="specs"><span><b>' + x.sqft.toLocaleString("en-IN") + '</b>sq ft</span><span><b>' + x.days + ' days</b>On site</span><span><b>' + x.tag + '</b>Scope</span></div>' +
       '<div class="cost">' + fmtCost(x.cost) + '<small>indicative, confirmed after measurement</small></div>' +
-      '<div class="card-actions"><a class="btn wa" target="_blank" rel="noopener" href="' + waLink(enquireText(x)) + '"><svg><use href="#i-wa"/></svg>Ask about this</a>' +
+      '<div class="card-actions"><a class="btn" target="_blank" rel="noopener" href="' + waLink(enquireText(x)) + '"><svg><use href="#i-wa"/></svg>Ask about this</a>' +
       '<a class="btn ghost" href="' + TEL + '"><svg><use href="#i-phone"/></svg>Call</a></div></div>';
     el.querySelector(".pic").onclick = function(){ lbOpen(featured, i); };
     stack.appendChild(el);
@@ -750,7 +774,7 @@ footer a:hover{color:var(--paper)}
         '<div class="b"><div class="cost">' + fmtCost(x.cost) + '<small>indicative · about ' + x.days + ' days</small></div><h3>' + x.title + '</h3>' +
         '<p class="loc"><svg><use href="#i-pin"/></svg>' + x.locName + '</p>' +
         '<div class="meta"><span>' + x.sqft.toLocaleString("en-IN") + ' sq ft</span><span>' + x.tag + '</span></div>' +
-        '<div class="acts"><a class="btn wa" target="_blank" rel="noopener" href="' + waLink(enquireText(x)) + '"><svg><use href="#i-wa"/></svg>Enquire</a>' +
+        '<div class="acts"><a class="btn" target="_blank" rel="noopener" href="' + waLink(enquireText(x)) + '"><svg><use href="#i-wa"/></svg>Enquire</a>' +
         '<a class="btn ghost" href="' + TEL + '"><svg><use href="#i-phone"/></svg>Call</a></div></div></article>';
     }).join("") : '<div class="empty">Nothing matches these filters right now. <a target="_blank" rel="noopener" href="' +
       waLink("Hi " + NAME + ", I'm planning interiors in " + (state.loc || AREA) + ". Can you share similar work you have done?") +
@@ -816,7 +840,7 @@ footer a:hover{color:var(--paper)}
     var lo = round5k(mid * 0.88), hi = round5k(mid * 1.12);
     var out = document.getElementById("estOut");
     out.innerHTML = "<b>" + fmtCost(lo) + " to " + fmtCost(hi) + "</b>" +
-      "<span>" + finish + " finish · about " + estDays(sqft, scope) + " days on site · indicative only, confirmed after a site measurement</span>";
+      "<span>" + finish + " finish · about " + estDays(sqft, scope) + " days on site. Indicative only, confirmed after a site measurement. Matching work is now showing in the portfolio above.</span>";
     out.hidden = false;
     // show the matching work straight away
     var map = { full: "full", kitchen: "kitchen", wardrobe: "wardrobe", room: "bedroom" };
